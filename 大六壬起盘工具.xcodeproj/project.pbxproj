@@ -7,18 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		560E03D52898C7B00035C9EE /* Pan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E03D42898C7B00035C9EE /* Pan.swift */; };
+		560E03D72898C7FE0035C9EE /* SanChuan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E03D62898C7FE0035C9EE /* SanChuan.swift */; };
+		560E03D92898C81C0035C9EE /* SiKe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E03D82898C81C0035C9EE /* SiKe.swift */; };
+		562B590F28962BFB002AF874 /* calcSiZhu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562B590E28962BFB002AF874 /* calcSiZhu.swift */; };
 		56E7EF45288F8F0F0065F396 /* KeXueSuanMing_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E7EF44288F8F0F0065F396 /* KeXueSuanMing_iOSApp.swift */; };
 		56E7EF47288F8F0F0065F396 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E7EF46288F8F0F0065F396 /* ContentView.swift */; };
 		56E7EF49288F8F1B0065F396 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56E7EF48288F8F1B0065F396 /* Assets.xcassets */; };
 		56E7EF4C288F8F1B0065F396 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56E7EF4B288F8F1B0065F396 /* Preview Assets.xcassets */; };
+		56E7EF57289070DE0065F396 /* calcJD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E7EF56289070DE0065F396 /* calcJD.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		56E7EF41288F8F0F0065F396 /* KeXueSuanMing-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KeXueSuanMing-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		560E03D42898C7B00035C9EE /* Pan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pan.swift; sourceTree = "<group>"; };
+		560E03D62898C7FE0035C9EE /* SanChuan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanChuan.swift; sourceTree = "<group>"; };
+		560E03D82898C81C0035C9EE /* SiKe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiKe.swift; sourceTree = "<group>"; };
+		562B590E28962BFB002AF874 /* calcSiZhu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calcSiZhu.swift; sourceTree = "<group>"; };
+		56E7EF41288F8F0F0065F396 /* 大六壬起盘工具.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "大六壬起盘工具.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56E7EF44288F8F0F0065F396 /* KeXueSuanMing_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeXueSuanMing_iOSApp.swift; sourceTree = "<group>"; };
 		56E7EF46288F8F0F0065F396 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		56E7EF48288F8F1B0065F396 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56E7EF4B288F8F1B0065F396 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		56E7EF56289070DE0065F396 /* calcJD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calcJD.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +42,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		562B590D2894F206002AF874 /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				56E7EF56289070DE0065F396 /* calcJD.swift */,
+				562B590E28962BFB002AF874 /* calcSiZhu.swift */,
+			);
+			path = shared;
+			sourceTree = "<group>";
+		};
 		56E7EF38288F8F0F0065F396 = {
 			isa = PBXGroup;
 			children = (
@@ -43,7 +62,7 @@
 		56E7EF42288F8F0F0065F396 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				56E7EF41288F8F0F0065F396 /* KeXueSuanMing-iOS.app */,
+				56E7EF41288F8F0F0065F396 /* 大六壬起盘工具.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -51,6 +70,11 @@
 		56E7EF43288F8F0F0065F396 /* KeXueSuanMing-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				562B590D2894F206002AF874 /* shared */,
+				56E7EF5B2890E9E40065F396 /* views */,
+				56E7EF5A2890E9B30065F396 /* stores */,
+				56E7EF592890E9940065F396 /* resource */,
+				56E7EF582890E98F0065F396 /* models */,
 				56E7EF44288F8F0F0065F396 /* KeXueSuanMing_iOSApp.swift */,
 				56E7EF46288F8F0F0065F396 /* ContentView.swift */,
 				56E7EF48288F8F1B0065F396 /* Assets.xcassets */,
@@ -67,12 +91,43 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		56E7EF582890E98F0065F396 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				560E03D42898C7B00035C9EE /* Pan.swift */,
+				560E03D62898C7FE0035C9EE /* SanChuan.swift */,
+				560E03D82898C81C0035C9EE /* SiKe.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		56E7EF592890E9940065F396 /* resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = resource;
+			sourceTree = "<group>";
+		};
+		56E7EF5A2890E9B30065F396 /* stores */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = stores;
+			sourceTree = "<group>";
+		};
+		56E7EF5B2890E9E40065F396 /* views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		56E7EF40288F8F0F0065F396 /* KeXueSuanMing-iOS */ = {
+		56E7EF40288F8F0F0065F396 /* 大六壬起盘工具 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 56E7EF4F288F8F1B0065F396 /* Build configuration list for PBXNativeTarget "KeXueSuanMing-iOS" */;
+			buildConfigurationList = 56E7EF4F288F8F1B0065F396 /* Build configuration list for PBXNativeTarget "大六壬起盘工具" */;
 			buildPhases = (
 				56E7EF3D288F8F0F0065F396 /* Sources */,
 				56E7EF3E288F8F0F0065F396 /* Frameworks */,
@@ -82,9 +137,11 @@
 			);
 			dependencies = (
 			);
-			name = "KeXueSuanMing-iOS";
+			name = "大六壬起盘工具";
+			packageProductDependencies = (
+			);
 			productName = "KeXueSuanMing-iOS";
-			productReference = 56E7EF41288F8F0F0065F396 /* KeXueSuanMing-iOS.app */;
+			productReference = 56E7EF41288F8F0F0065F396 /* 大六壬起盘工具.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +159,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 56E7EF3C288F8F0F0065F396 /* Build configuration list for PBXProject "KeXueSuanMing-iOS" */;
+			buildConfigurationList = 56E7EF3C288F8F0F0065F396 /* Build configuration list for PBXProject "大六壬起盘工具" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -111,11 +168,13 @@
 				Base,
 			);
 			mainGroup = 56E7EF38288F8F0F0065F396;
+			packageReferences = (
+			);
 			productRefGroup = 56E7EF42288F8F0F0065F396 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				56E7EF40288F8F0F0065F396 /* KeXueSuanMing-iOS */,
+				56E7EF40288F8F0F0065F396 /* 大六壬起盘工具 */,
 			);
 		};
 /* End PBXProject section */
@@ -137,8 +196,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				562B590F28962BFB002AF874 /* calcSiZhu.swift in Sources */,
+				560E03D72898C7FE0035C9EE /* SanChuan.swift in Sources */,
 				56E7EF47288F8F0F0065F396 /* ContentView.swift in Sources */,
 				56E7EF45288F8F0F0065F396 /* KeXueSuanMing_iOSApp.swift in Sources */,
+				560E03D52898C7B00035C9EE /* Pan.swift in Sources */,
+				560E03D92898C81C0035C9EE /* SiKe.swift in Sources */,
+				56E7EF57289070DE0065F396 /* calcJD.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,10 +345,10 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "weichenluo.KeXueSuanMing-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "大六壬起盘工具";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -310,17 +374,17 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "weichenluo.KeXueSuanMing-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "大六壬起盘工具";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		56E7EF3C288F8F0F0065F396 /* Build configuration list for PBXProject "KeXueSuanMing-iOS" */ = {
+		56E7EF3C288F8F0F0065F396 /* Build configuration list for PBXProject "大六壬起盘工具" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				56E7EF4D288F8F1B0065F396 /* Debug */,
@@ -329,7 +393,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		56E7EF4F288F8F1B0065F396 /* Build configuration list for PBXNativeTarget "KeXueSuanMing-iOS" */ = {
+		56E7EF4F288F8F1B0065F396 /* Build configuration list for PBXNativeTarget "大六壬起盘工具" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				56E7EF50288F8F1B0065F396 /* Debug */,
