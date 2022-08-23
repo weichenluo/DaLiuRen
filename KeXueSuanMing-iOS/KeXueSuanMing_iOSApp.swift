@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+let tianGan = formTianGan()
+let diZhi = formDiZhi()
+let WXGuanXi = formWuXing()
+
 @main
 struct KeXueSuanMing_iOSApp: App {
     var body: some Scene {
