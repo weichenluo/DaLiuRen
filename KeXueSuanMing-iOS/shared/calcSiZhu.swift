@@ -7,11 +7,6 @@
 
 import Foundation
 
-struct GanZhi {
-    static let tianGan = ["甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"]
-    static let diZhi = ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"]
-}
-
 class SiZhu {
     var siZhu : [[Int]] = [[Int]]()
     var yueJiang = 0
