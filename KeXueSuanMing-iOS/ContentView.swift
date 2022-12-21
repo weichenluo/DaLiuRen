@@ -55,7 +55,8 @@ struct ContentView: View {
                     }
                 }
                 
-                let _ = SanChuan(siKe, self.siZhu!)
+                let sanChuan = SanChuan(siKe, self.siZhu!)
+                sanChuan.zeiKe()
             } label: {
                 Text("计算四柱及月将")
             }

@@ -8,8 +8,16 @@
 
 import Foundation
 
+let Xun = [
+    [0,1,2,3,4,5,6,7,8,9],
+    [10,11,0,1,2,3,4,5,6,7],
+    [8,9,10,11,0,1,2,3,4,5],
+    [6,7,8,9,10,11,0,1,2,3],
+    [4,5,6,7,8,9,10,11,0,1],
+    [2,3,4,5,6,7,8,9,10,11],
+]
 
-class Chuan {
+struct Chuan {
     var liuQin : String?
     var tinaGan : Int?
     var diZhi : Int?
@@ -62,11 +70,11 @@ class SanChuan {
             print("贼克法：一贼")
             return
         }else if theft.count > 1 {
-            var count = [Int](repeating: 0, count: 2)
+            var count = [[Int]](repeating: [Int](), count: 2)
             for i in theft{
-                count[diZhi[self.siKe[i][1]].yingYang] += 1
+                count[diZhi[self.siKe[i][1]].yingYang].append(i)
             }
-            if count[tianGan[self.siKe[2][0]].yingYang] == 1 {
+            if count[tianGan[self.siKe[2][0]].yingYang].count == 1 {
                 print("比用法：多贼")
                 return
             }else{
@@ -97,7 +105,21 @@ class SanChuan {
         return
     }
     
-    func zeiKe(){}
+    private func findXun(_ zhi:Int) -> Int?{
+        let riGan = self.siZhu[2][0], riZhi = self.siZhu[2][1]
+        var r = -1
+        for i in 0..<6{
+            let idx = Xun[i].firstIndex(of: riZhi)
+            if idx != nil && idx == riGan{
+                r = idx!
+                break
+            }
+        }
+        return Xun[r].firstIndex(of: zhi)
+    }
+    
+    func zeiKe(){
+    }
     
     func biYong(){}
     
