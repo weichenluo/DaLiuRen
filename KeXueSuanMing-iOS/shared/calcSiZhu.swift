@@ -29,8 +29,8 @@ class SiZhu {
             return
         }
         
-        self.yuanDan = calcLatitude(date: "\(year)", yueJiang: false) //计算元旦用来判断是否属于前一年的年柱
-        self.jieQi = calcLatitude(date: date.formatted(date: .numeric, time: .omitted), yueJiang: true) //黄道经度角度，用来判断当日属于的节气区间
+        self.yuanDan = calcLatitude(date: "\(year)") //计算元旦用来判断是否属于前一年的年柱
+        self.jieQi = calcLatitude(date: date) //黄道经度角度，用来判断当日属于的节气区间
         self.yueJiang = calcYueJiang(d: self.jieQi) //计算当日月将
         self.jda = convertJD(year, month, day, hour) //计算当日的儒略日
         
@@ -83,7 +83,9 @@ class SiZhu {
             yueZhu[1] = 2
         }
         
-        yueZhu[0] = (self.siZhu[0][0] * 2 + yueZhu[1]) % 10
+        let niangan = self.siZhu[0][0] % 5 + 1
+        
+        yueZhu[0] = (niangan * 2 + yueZhu[1]) % 10
         
         return yueZhu
     }

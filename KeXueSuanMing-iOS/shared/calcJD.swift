@@ -7,22 +7,22 @@
 
 import Foundation
 
-func convertJD(date:String, yueJiang: Bool) -> Double{
-    if yueJiang {
-        let formatter = DateFormatter()
-        let dateFormatter = "yyyy/MM/dd HH:mm:ss"
-        let JD_JAN_1_1970_0000GMT = 2440587.5
-        formatter.dateFormat = dateFormatter
-        let date = formatter.date(from: "\(date) 11:59:59")!
-        return JD_JAN_1_1970_0000GMT + date.timeIntervalSince1970 / 86400.0
-    }else{
-        let formatter = DateFormatter()
-        let dateFormatter = "yyyy/MM/dd HH:mm:ss"
-        let JD_JAN_1_1970_0000GMT = 2440587.5
-        formatter.dateFormat = dateFormatter
-        let date = formatter.date(from: "\(date)/1/1 00:00:00")!
-        return JD_JAN_1_1970_0000GMT + date.timeIntervalSince1970 / 86400.0
-    }
+func convertJDDate(date:Date) -> Double{
+//    let formatter = DateFormatter()
+//    let dateFormatter = "yyyy/MM/dd HH:mm:ss"
+    let JD_JAN_1_1970_0000GMT = 2440587.5
+//    formatter.dateFormat = dateFormatter
+//    let date = formatter.date(from: "\(date) 11:59:59")!
+    return JD_JAN_1_1970_0000GMT + date.timeIntervalSince1970 / 86400.0
+}
+
+func convertJDString(date:String) -> Double{
+    let formatter = DateFormatter()
+    let dateFormatter = "yyyy/MM/dd HH:mm:ss"
+    let JD_JAN_1_1970_0000GMT = 2440587.5
+    formatter.dateFormat = dateFormatter
+    let date = formatter.date(from: "\(date)/1/1 00:00:00")!
+    return JD_JAN_1_1970_0000GMT + date.timeIntervalSince1970 / 86400.0
 }
 
 func convertJD(_ y:Int, _ m:Int, _ d:Int, _ h:Int) -> Double?{
@@ -52,11 +52,45 @@ func convertJD(_ y:Int, _ m:Int, _ d:Int, _ h:Int) -> Double?{
     return jdy + Double(jdm) + jdd + jdh + initJD + 0.5
 }
 
-func calcLatitude(date: String, yueJiang: Bool) -> Double{
+func calcLatitude(date: Date) -> Double{
     let deg2rad = Double.pi / 180.000
     
     // calc today's Julian Date
-    let JD = convertJD(date: date, yueJiang: yueJiang)
+    let JD = convertJDDate(date: date)
+    // calc date base on 2000-1-1
+    let n:Double = JD - 2451545.0000
+    
+    // starting with the mean longitude of the sun in degrees, corrected for aberation
+    var meanlong_degrees = 280.460 + (0.9856474 * n)
+//    meanlong_degrees = meanlong_degrees.truncatingRemainder(dividingBy: 360.0)
+    if meanlong_degrees > 0 {
+        while meanlong_degrees > 360 {
+            meanlong_degrees -= 360
+        }
+    }else{
+        while meanlong_degrees < 0 {
+            meanlong_degrees += 360
+        }
+    }
+    
+    // and the mean anomaly in degrees
+    var meananomaly_degrees = 357.528 + (0.9856003 * n)
+    meananomaly_degrees = meananomaly_degrees.truncatingRemainder(dividingBy: 360.0)
+    
+    
+    let meananomaly_radians = meananomaly_degrees * deg2rad
+    
+    var elipticlong_degrees = meanlong_degrees + (1.915 * sin(meananomaly_radians)) + (0.020 * sin(2 * meananomaly_radians))
+    elipticlong_degrees = elipticlong_degrees.truncatingRemainder(dividingBy: 360.0)
+    
+    return elipticlong_degrees
+}
+
+func calcLatitude(date: String) -> Double{
+    let deg2rad = Double.pi / 180.000
+    
+    // calc today's Julian Date
+    let JD = convertJDString(date: date)
     // calc date base on 2000-1-1
     let n:Double = JD - 2451545.0000
     
