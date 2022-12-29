@@ -70,7 +70,7 @@ class SanChuan {
         
         if theft.count == 1 {
             print("贼克法：一贼")
-            zeiKe(isZei: true, loc: theft)
+            zeiKe(loc: theft)
             return
         }else if theft.count > 1 {
             var count = [[Int]](repeating: [Int](), count: 2)
@@ -79,6 +79,7 @@ class SanChuan {
             }
             if count[TianGan[self.siKe[2][0]].yingYang].count == 1 {
                 print("比用法：多贼")
+                biYong(ke: theft)
                 return
             }else{
                 print("涉害法: 多贼")
@@ -88,7 +89,7 @@ class SanChuan {
         
         if restrain.count == 1{
             print("贼克法：一克")
-            zeiKe(isZei: false, loc: restrain)
+            zeiKe(loc: restrain)
             return
         }else if restrain.count > 1 {
             var count = [Int](repeating: 0, count: 2)
@@ -148,8 +149,7 @@ class SanChuan {
         
     }
     
-    func zeiKe(isZei:Bool, loc: [Int]){
-        print("————————————贼课 开始——————————")
+    func zeiKe(loc: [Int]){
         
         let wo = self.siZhu[2][0]
         
@@ -209,10 +209,19 @@ class SanChuan {
         }
         
         
-        print("————————————贼课 结束——————————")
     }
     
-    func biYong(){}
+    func biYong(ke : [Int]){
+        var index = -1
+        for i in 0..<ke.count {
+            let loc = ke[i]
+            if DiZhi[siKe[loc][1]].yingYang == DiZhi[siZhu[2][1]].yingYang{
+                index = loc
+            }
+        }
+        
+        zeiKe(loc: [index])
+    }
     
     func sheHai(){}
 }
