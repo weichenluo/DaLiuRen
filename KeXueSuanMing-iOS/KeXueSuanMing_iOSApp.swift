@@ -7,9 +7,10 @@
 
 import SwiftUI
 
-let tianGan = formTianGan()
-let diZhi = formDiZhi()
+let TianGan = formTianGan()
+let DiZhi = formDiZhi()
 let WXGuanXi = formWuXing()
+let LiuQin = ["兄","官","财","子","父"]
 
 @main
 struct KeXueSuanMing_iOSApp: App {

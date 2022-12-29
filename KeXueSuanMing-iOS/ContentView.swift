@@ -18,8 +18,8 @@ struct ContentView: View {
     var body: some View {
         
         if let siZhu = siZhu {
-            Text("四柱：\(tianGan[siZhu.siZhu[0][0]].name)\(diZhi[siZhu.siZhu[0][1]].name)年 \(tianGan[siZhu.siZhu[1][0]].name)\(diZhi[siZhu.siZhu[1][1]].name)月 \(tianGan[siZhu.siZhu[2][0]].name)\(diZhi[siZhu.siZhu[2][1]].name)日 \(tianGan[siZhu.siZhu[3][0]].name)\(diZhi[siZhu.siZhu[3][1]].name)时")
-            Text("月将：\(diZhi[siZhu.yueJiang].name)")
+            Text("四柱：\(TianGan[siZhu.siZhu[0][0]].name)\(DiZhi[siZhu.siZhu[0][1]].name)年 \(TianGan[siZhu.siZhu[1][0]].name)\(DiZhi[siZhu.siZhu[1][1]].name)月 \(TianGan[siZhu.siZhu[2][0]].name)\(DiZhi[siZhu.siZhu[2][1]].name)日 \(TianGan[siZhu.siZhu[3][0]].name)\(DiZhi[siZhu.siZhu[3][1]].name)时")
+            Text("月将：\(DiZhi[siZhu.yueJiang].name)")
             Button {
                 self.siZhu = nil
                 self.pan = Pan()
@@ -42,21 +42,20 @@ struct ContentView: View {
                 let siKe = SiKe(pan: self.pan, siZhu: self.siZhu!)
                 
                 print("排盘")
-                print(self.pan.diPan.map{diZhi[$0].name})
-                print(self.pan.tianPan.map{diZhi[$0].name})
+                print(self.pan.diPan.map{DiZhi[$0].name})
+                print(self.pan.tianPan.map{DiZhi[$0].name})
                 print(self.pan.shenPan.map{GuiRen.guiRen[$0]})
                 
                 
                 for i in 0..<4 {
                     if i == 0 {
-                        print("第\(i+1)课: \(tianGan[self.siZhu!.siZhu[2][0]].name)\(diZhi[siKe.siKe[i][1]].name)\(GuiRen.guiRen[siKe.siKe[i][2]])")
+                        print("第\(i+1)课: \(TianGan[self.siZhu!.siZhu[2][0]].name)\(DiZhi[siKe.siKe[i][1]].name)\(GuiRen.guiRen[siKe.siKe[i][2]])")
                     }else{
-                        print("第\(i+1)课: \(diZhi[siKe.siKe[i][0]].name)\(diZhi[siKe.siKe[i][1]].name)\(GuiRen.guiRen[siKe.siKe[i][2]])")
+                        print("第\(i+1)课: \(DiZhi[siKe.siKe[i][0]].name)\(DiZhi[siKe.siKe[i][1]].name)\(GuiRen.guiRen[siKe.siKe[i][2]])")
                     }
                 }
                 
-                let sanChuan = SanChuan(siKe, self.siZhu!)
-                sanChuan.zeiKe()
+                let sanChuan = SanChuan(siKe, self.siZhu!, self.pan)
             } label: {
                 Text("计算四柱及月将")
             }
