@@ -77,12 +77,13 @@ class SanChuan {
             for i in theft{
                 count[DiZhi[self.siKe[i][1]].yingYang].append(i)
             }
-            if count[TianGan[self.siKe[2][0]].yingYang].count == 1 {
+            if count[TianGan[self.siZhu[2][0]].yingYang].count == 1 {
                 print("比用法：多贼")
                 biYong(ke: theft)
                 return
             }else{
                 print("涉害法: 多贼")
+                sheHai(ke: theft)
                 return
             }
         }
@@ -96,11 +97,13 @@ class SanChuan {
             for i in restrain{
                 count[DiZhi[self.siKe[i][1]].yingYang] += 1
             }
-            if count[TianGan[self.siKe[2][0]].yingYang] == 1 {
+            if count[TianGan[self.siZhu[2][0]].yingYang] == 1 {
                 print("比用法：多克")
+                biYong(ke: restrain)
                 return
             }else{
                 print("涉害法: 多克")
+                sheHai(ke: restrain)
                 return
             }
         }
@@ -223,5 +226,23 @@ class SanChuan {
         zeiKe(loc: [index])
     }
     
-    func sheHai(){}
+    func sheHai(ke: [Int]){
+        let choice = [[2,5,8,11],[0,3,6,9],[1,4,7,10]]
+        var min_idx = Int.max
+        var min_ke = -1
+        
+        for i in 0..<ke.count{
+            for j in 0..<3 {
+                if choice[j].contains(siKe[ke[i]][0]){
+                    if j < min_idx {
+                        min_ke = ke[i]
+                        min_idx = j
+                    }
+                }
+            }
+        }
+        
+        zeiKe(loc: [min_ke])
+        
+    }
 }
